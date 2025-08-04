@@ -1,0 +1,94 @@
+.log-reg{
+    display:flex;
+    flex-direction: row;
+}
+.item-reg{
+    padding-left: 20px;
+}
+
+
+.login-modal-reg{
+    position: absolute;
+     top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-color: black;
+  padding: 15px 30px 30px 30px;
+ background-color:white;
+}
+.login-mod{
+    z-index: 2;
+}
+.hide-log{
+    display: none;
+}
+
+.background{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+    
+}
+.close-reg
+{
+    position:relative;
+    left: 95%;
+    top: 1%;
+    margin-top: 0;
+    padding-top: 0;
+    cursor:pointer;
+}
+
+.input-login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+ 
+}
+.input-form
+{
+    width: 32vw !important;
+    background-color:whitesmoke !important;
+    
+}
+.log-form-why{
+    display: flex;
+    flex-direction: row;
+}
+.log-form-why > * {
+    margin: 0 0 0 0 !important; 
+}
+
+.bottom-login-reg
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 0;
+    margin-top: 5px;
+    gap: 5px;
+}
+.bottom-login-reg * 
+{
+    font-size: 14px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+.login-mod{
+    background-color:#efefef;
+}
+
+.upperBlock
+{
+    display: flex;
+    align-items: center;
+}
+
+.textColor{
+    color: #00a0b0;
+}

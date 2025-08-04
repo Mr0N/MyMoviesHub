@@ -1,0 +1,75 @@
+.bold-reg{
+    font-weight: bold;
+}
+.modal-window-reg{
+    font-size: 12px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.hr-reg {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.modal-window-reg .form-control
+{
+    height: 7vh;
+    border:none;
+    
+}
+.modal-window-reg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px;
+    border: 6px solid hsl(0, 3%, 17%);  /* світло-сірий колір */
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+    z-index: 2;
+    background-color:white;
+    width: 35%;
+      max-height: 90vh;
+  height: auto;
+ 
+}
+
+.hide-reg{
+    display:none;    
+}
+
+.close-registration{
+  cursor: pointer;
+}
+.speed-reg{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+
+.modal-window-background-reg{
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+}
+
+.btn-reg{
+    width: 96%;
+    background-color:#00a0b0 !important;
+}
+.btn-reg:hover {
+  width: 96% !important;
+  background-color: #447c7e !important;
+}
+
+.form-reg input{
+    font-size: 20px;
+    background-color:whitesmoke;
+}
+

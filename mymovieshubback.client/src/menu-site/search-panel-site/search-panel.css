@@ -1,0 +1,35 @@
+.search-panel-c
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.form-search {
+    height: 60px !important;
+}
+
+.search-panel-item
+{
+    padding-left: 15px;
+   
+}
+
+.btn-search
+{
+    background-color: #00a0b0;
+}
+.btn-search:hover
+{
+    background-color:#13aebc;
+}
+
+.search-p{
+    color:white;
+    position:relative;
+    top:6px;
+    font-size:16px;
+    font-weight: bold;
+      background-color:#222d33;
+      z-index: 1;
+}

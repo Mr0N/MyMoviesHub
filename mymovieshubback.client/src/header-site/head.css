@@ -1,0 +1,151 @@
+.left,.rigth
+{
+  display: flex;
+  flex:1;
+}
+.center
+{
+display: flex;
+flex:0;
+}
+.rigth{
+  flex-direction: column-reverse;
+}
+.panel-header
+{
+  padding-left: 65px;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    
+    background-color:#09151b;
+    max-height: 40px;
+      flex: 0; /* обидві сторони займають однаковий простір */
+}
+
+.header >  * {
+   z-index: 15;
+}
+.visible-head{
+ display: none;
+}
+
+.panel-items-header{
+  list-style: none;
+    position:absolute;
+    top: 100%;
+}
+
+.panel-items-header{
+  margin-left: 0;
+  padding-left: 0;
+}
+.scope-header{
+  display: flex;
+  flex-direction: column;
+  padding-top: 13px;
+  position: relative;
+  cursor: pointer;
+}
+
+.sub-scope-header
+{
+  flex-direction: row;
+  display: flex;
+}
+.img-logo-header{
+  padding-right: 5px;
+}
+
+
+.panel-items-header{
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.sub-scope-header{
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+.login-block-header{
+  display: flex;
+  flex-direction: row ;
+  justify-content: center;
+  align-items:center;
+}
+.login-block-header > *{
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.toggle-header{
+  padding-left: 10px;
+}
+
+
+.login-header{
+  margin-left: 10px;
+}
+
+
+.upper-text
+{
+  text-transform:uppercase;
+  font-size:10px;
+}
+
+.logo-header
+{
+  display:flex;
+  justify-content: center;
+}
+
+
+.whitesmoke
+{
+    color:#777;
+}
+
+
+.reg-header
+{
+  padding-left: 5px;
+}
+.login-header a {
+  text-decoration: none;
+  position: relative;
+    top:1vh;
+}
+
+.link-reg {
+  text-decoration: none;
+  position: relative;
+  top:1vh;
+  padding-left: 45px;
+}
+
+.toggle-header{
+  position: relative;
+  top:5%;
+  bottom:5%;
+  height: 80%;
+}
+
+
+.upper-text:hover
+{
+  color:whitesmoke;
+  text-decoration: underline;
+}
+
+.panel-header > .panel-items-header{
+  background-color:#2e3339 !important;
+}
+.panel-header  > .panel-items-header:hover
+{
+  background-color:#3b3f45
+}

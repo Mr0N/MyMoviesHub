@@ -1,0 +1,11 @@
+.image-logo{
+    max-height: 40px;
+    margin-top: 4px;
+    background-color:transparent;
+}
+
+.img-cont-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,119 @@
+
+.menu
+{
+    background-color:#222d33;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    z-index: 11;
+    height: 44px;
+}
+.menu *
+{
+    z-index: 11;
+}
+
+.hide-menu
+{
+    display: none;
+}
+.menu-item
+{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items:center;
+
+    margin-bottom: 0;
+}
+.menu-item li
+{
+    display:block;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.menu-item p {
+     padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.menu-item a
+{
+    padding-bottom: 0;
+}
+.menu-item a:hover
+{
+    text-decoration:underline
+}
+.menu-item p:hover
+{
+    text-decoration: underline;
+}
+.arrow-menu
+{
+    margin-top: 2px;
+    font-size: 14px;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='8px' height='5px' viewBox='0 0 8 5' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='common-styles' transform='translate(-151.000000, -677.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cpath d='M156.129155,675.935423 C156.129155,675.418803 156.547958,675 157.064577,675 C157.581197,675 158,675.418803 158,675.935423 L158,680.064577 C158,680.581197 157.581197,681 157.064577,681 L152.935423,681 C152.418803,681 152,680.581197 152,680.064577 C152,679.547958 152.418803,679.129155 152.935423,679.129155 L156.129155,679.129155 L156.129155,675.935423 Z' id='Rectangle-8-Copy-3' transform='translate(155.000000, 678.000000) rotate(-315.000000) translate(-155.000000, -678.000000) '%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    width: 20px;
+    height: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45%;
+
+}
+.cinema
+{
+    position:absolute;
+      background-color:#222d33;
+
+      z-index: 13 ;
+       height: 50vh;
+       width:80vw;
+       left: 20%;
+
+}
+.cinema > div
+{
+      background-color:#222d33;
+}
+
+.item-menu{
+    font-size:15px;
+    margin-left:5px;
+    color:white;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.cinema  .category
+{
+    display:flex;
+    justify-content: row;
+}
+.logo-category
+{
+  
+    width: 20%;
+}
+.list-category{
+    width: 80%;
+}
+.find-tool
+{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.showFindTool
+{
+    display: none;
+    width: 0;
+}
