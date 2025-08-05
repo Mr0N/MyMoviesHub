@@ -148,3 +148,26 @@ z-index: 5;
 {
     color:#2e859e;
 }
+
+.modal-show-info
+{
+    display: flex;
+    flex-direction: column;
+}
+.modal-show-info
+{
+    color:white;
+}
+.modal-row
+{
+    display: flex;
+    flex-direction: row;
+}
+.modal-row >*
+{
+    margin: 0 0 0 0;
+}
+.modal-show-info > *
+{
+    margin: 0 0 0 0;
+}

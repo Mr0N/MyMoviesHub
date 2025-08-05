@@ -6,27 +6,27 @@ import cartoons from "../../assets/card/cartoons.svg"
 import movies from "../../assets/card/movies.svg"
 import serials from "../../assets/card/serials.svg"
 import InfoIcon from "../icon-site/info-icon";
-let BaseData = ({ color, name, icon, show,onMouseEnter,onMouseLeave }) => {
+let BaseData = ({ color, name, icon, show, onMouseEnter, onMouseLeave }) => {
 
     return <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <div style={{ backgroundColor: `${color}` }} className="card-block">
             <p className={!show ? "card-site-hide" : ""}>{name}</p>
-            
+
             {show ? <img className="card-icon-data" src={icon}></img> : <InfoIcon style={{ height: "20px", width: "20px" }} className="card-info card-icon-data" />}
         </div>
 
     </div>
 }
-let Anime = ({ show,onMouseEnter,onMouseLeave }) => {
+let Anime = ({ show, onMouseEnter, onMouseLeave }) => {
     return <BaseData onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} color="#696969" name="Аниме" show={show} icon={anime} />
 }
-let Cartoons = ({ show,onMouseEnter,onMouseLeave  }) => {
+let Cartoons = ({ show, onMouseEnter, onMouseLeave }) => {
     return <BaseData onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} color="#216d2b" name="Мультфильмы" show={show} icon={cartoons} />
 }
-let Serials = ({ show,onMouseEnter,onMouseLeave  }) => {
+let Serials = ({ show, onMouseEnter, onMouseLeave }) => {
     return <BaseData onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} color="#df565a" name="Сериалы" show={show} icon={serials} />
 }
-let Movies = ({ show,onMouseEnter,onMouseLeave  }) => {
+let Movies = ({ show, onMouseEnter, onMouseLeave }) => {
     return <BaseData onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} color="#00a0b0" name="Фильмы" show={show} icon={movies} />
 }
 let AnimeCard = ({ backgroundImg }) => {
@@ -50,8 +50,32 @@ let MoviesCard = ({ backgroundImg }) => {
     return <Card backgroundImg={backgroundImg} data={data} />
 }
 let ShowInfo = ({ width, height }) => {
-    return <div style={{ height: height, width: width }}>
+    return <div className="modal-show-info" style={{ height: height, width: width }}>
         <a className="blue-color">Title</a>
+        <span className="modal-row">
+            <p>Рейтинг фильма:</p>
+            <p>5.43</p>
+            <p>(2)</p>
+        </span>
+        <div>Зірки</div>
+        <p className="description-card-site">Description</p>
+        <div className="genre-card-site modal-row">
+            <p>Жанр:</p>
+            <span>Фэнтези</span>
+        </div>
+        <div className="director-card-site modal-row">
+            <p>Режисер:</p>
+            <span>Валерио Мастерио</span>
+        </div>
+        <div className="starring-card-site modal-row">
+              <p>В ролях:</p>
+            <span>Валерио Мастерио</span>
+        </div>
+        <div className="rating-card-site modal-row">
+            <p>IMDb</p>
+            <p>5.9</p>
+            <p>(252)</p>
+        </div>
     </div>
 }
 let Card = ({ backgroundImg, data }) => {
@@ -70,28 +94,28 @@ let Card = ({ backgroundImg, data }) => {
     else if (data.cartoons) ElementInfo = Cartoons;
     let widthModalWindow = 250;
     let customWindow = useRef();
-        useEffect(()=>{
-            let widthWindow = window.innerWidth;
-            let infoOfElement = customWindow.current.getBoundingClientRect();
-            let beginElement = infoOfElement.left;
-            let endElement = beginElement+widthModalWindow;
-            let percent = (endElement/100)*30;
-            if((endElement+percent) > widthWindow)
-                setLeftPosition(-70);
-            else setLeftPosition(100);
-            },[]);
+    useEffect(() => {
+        let widthWindow = window.innerWidth;
+        let infoOfElement = customWindow.current.getBoundingClientRect();
+        let beginElement = infoOfElement.left;
+        let endElement = beginElement + widthModalWindow;
+        let percent = (endElement / 100) * 30;
+        if ((endElement + percent) > widthWindow)
+            setLeftPosition(-70);
+        else setLeftPosition(100);
+    }, []);
 
     return <div
         style={{ height: "250px", width: "166px", backgroundImage: `url(${backgroundImg})` }}
         className="card-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
 
-        <div  ref={customWindow} className="card-header">
-        
-                {objShow ? <ElementInfo onMouseEnter={() =>  setCard(true)} onMouseLeave={() => setCard(false)}  /> : <ElementInfo onMouseEnter={() =>  setCard(true)} onMouseLeave={() => setCard(false)}  show={true} />}
-                <div style={{ left: `${leftPosition}%` }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
-                    <ShowInfo height="150px" width={`${widthModalWindow}px`} />
-                </div>
-           
+        <div ref={customWindow} className="card-header">
+
+            {objShow ? <ElementInfo onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)} /> : <ElementInfo onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)} show={true} />}
+            <div style={{ left: `${leftPosition}%` }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
+                <ShowInfo height="200px" width={`${widthModalWindow}px`} />
+            </div>
+
         </div>
         <div className="card-trailer" onMouseLeave={() => setViewTrailer(false)} >
             <div className={objShow ? "card-opacity" : ""} onMouseEnter={() => setViewTrailer(true)} className="card-header-icon-trailer">
