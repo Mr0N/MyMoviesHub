@@ -71,9 +71,9 @@ let Card = ({ backgroundImg,data}) => {
     let dragLeave = ()=>{
          setCard(false);
     }
-
-
-
+    useEffect(() => {
+    setTooltipPosition("left");//write
+    }, []);
 
     return <div
         style={{ height:"250px",width:"166px",backgroundImage:`url(${backgroundImg})` }}
@@ -89,7 +89,7 @@ let Card = ({ backgroundImg,data}) => {
                 <div className={objShow ? "card-opacity" : ""} onMouseEnter={() => setViewTrailer(true)} className="card-header-icon-trailer">
                     <img className="card-icon-trailer" src={preview}></img>
                 </div>
-                <div class={objViewTrailer ? "card-trailer-site card-opacity" : "card-trailer-site card-hide"}>
+                <div className={objViewTrailer ? "card-trailer-site card-opacity" : "card-trailer-site card-hide"}>
                     <p style={{
                         textTransform: "upper",
                         color: "white",

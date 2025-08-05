@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+ import React, { Component } from "react";
 import "./find.css"
 import IconFind from "../../assets/find.svg";
 import onClickOutside from 'react-onclickoutside';
@@ -9,13 +9,6 @@ class Find extends Component {
         showFindTool: false,
         sizeInput: 70,
         tips:[
-            {
-              /*  title: "Фрилансеры",
-                original: "Frelancers",
-                year: 2012,
-                rating: 6.45,
-                id: 123 */
-            }
         ]
     };
     constructor(props) {
@@ -88,7 +81,9 @@ class Find extends Component {
 
     }
 
-    SetDataToTips(query){
+    SetDataToTips(query) {
+        if (query == '')
+            return;
         fetch(`/api/tips?query=${encodeURIComponent(query)}`)
         .then(a=>a.json())
         .then(a=>{
@@ -111,22 +106,22 @@ class Find extends Component {
             width: this.state.showFindTool ? `${widthInput}px` : "0"
         }} onChange={(e)=>this.SetDataToTips(e.target.value)} className="input-find inputText-find" type="textbox"></input>
         <div style={{
-            display: this.state.showFindTool ? "flex" : "none"
+            display: this.state.showFindTool && this.state.tips.length > 0 ? "flex" : "none"
         }} className="tips-find">        
             <ul>
-                <li>
+           
                    
                    {this.state.tips.map(a=>{
-                        return <> <p className="link-find">
+                        return <li> <p className="link-find">
                         {a.title}
                       </p>
                         <p className="text-find">
                             ({a.original},{a.year})
                         </p>
                         <div className="rating-find">{a.rating}</div>
-                    </>
+                    </li>
                    })}
-                </li>
+                
                 
             </ul>
             <button>Смотреть все результаты (еще 95 совпадений)</button>
