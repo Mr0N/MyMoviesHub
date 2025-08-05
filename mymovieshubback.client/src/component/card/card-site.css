@@ -129,17 +129,10 @@ z-index: 5;
 {
     cursor:help;
 }
-.show-info-left{
-left: 100%;
-}
-.show-info-rigth
-{
-left: -250%;
-}
+
 .show-info
 {
-    height: 50vh;
-    width: 40vw;
+  
     background-color:#222d33;
     position: absolute;
     
