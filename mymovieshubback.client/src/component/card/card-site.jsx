@@ -6,6 +6,7 @@ import cartoons from "../../assets/card/cartoons.svg"
 import movies from "../../assets/card/movies.svg"
 import serials from "../../assets/card/serials.svg"
 import InfoIcon from "../icon-site/info-icon";
+import StarsRow from "./starRow";
 let BaseData = ({ color, name, icon, show, onMouseEnter, onMouseLeave }) => {
 
     return <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -49,27 +50,36 @@ let MoviesCard = ({ backgroundImg }) => {
     data.movies = true;
     return <Card backgroundImg={backgroundImg} data={data} />
 }
-let ShowInfo = ({ width, height }) => {
-    return <div className="modal-show-info" style={{ height: height, width: width }}>
+let ShowInfo = React.forwardRef((props,ref) => {
+    let { width, height,InfoIcon } = props;
+    return <div ref={ref} className="modal-show-info" style={{ minHeight: height, minWidth: width }}>
+       <div className="info-icon-modal-window">
+            <div className="info-icon-modal-infoicon">
+                 <InfoIcon  show={true}/>
+            </div>
+        </div>
         <a className="blue-color">Title</a>
         <span className="modal-row">
             <p>Рейтинг фильма:</p>
-            <p>5.43</p>
-            <p>(2)</p>
+            <p className="blue-color">5.43</p>
+            <p className="blue-color">(2)</p>
         </span>
-        <div>Зірки</div>
-        <p className="description-card-site">Description</p>
+        <div><StarsRow value={2}/></div>
+        <p className="description-card-site">
+            Когда у Кэтрин диагностируют неизлечимую болезнь, её муж Генри обещает похоронить супругу в лесу рядом с домом, где она выросла. Однако после внезапной смерти жены мужчина нарушает обещание и под давлением её влиятельного отца Гэри возвращает тело в город....
+
+        </p>
         <div className="genre-card-site modal-row">
             <p>Жанр:</p>
-            <span>Фэнтези</span>
+            <span className="blue-color">Фэнтези</span>
         </div>
         <div className="director-card-site modal-row">
             <p>Режисер:</p>
-            <span>Валерио Мастерио</span>
+            <span className="blue-color">Валерио Мастерио</span>
         </div>
         <div className="starring-card-site modal-row">
               <p>В ролях:</p>
-            <span>Валерио Мастерио</span>
+            <span className="blue-color">Валерио Мастерио</span>
         </div>
         <div className="rating-card-site modal-row">
             <p>IMDb</p>
@@ -77,7 +87,7 @@ let ShowInfo = ({ width, height }) => {
             <p>(252)</p>
         </div>
     </div>
-}
+})
 let Card = ({ backgroundImg, data }) => {
     let [objShow, setShow] = useState(false);
     let [objViewTrailer, setViewTrailer] = useState(false);
@@ -94,16 +104,22 @@ let Card = ({ backgroundImg, data }) => {
     else if (data.cartoons) ElementInfo = Cartoons;
     let widthModalWindow = 250;
     let customWindow = useRef();
+    let modalWindow = useRef();
     useEffect(() => {
+            if (!objCardHeader) return; // рано виходимо, якщо немає показу
+        let currentModalWindow = modalWindow.current;
+        let rect = currentModalWindow.getBoundingClientRect();
+        console.log(rect);
+
         let widthWindow = window.innerWidth;
         let infoOfElement = customWindow.current.getBoundingClientRect();
         let beginElement = infoOfElement.left;
-        let endElement = beginElement + widthModalWindow;
+        let endElement = beginElement + (rect.width+(rect.width/100)*40);
         let percent = (endElement / 100) * 30;
         if ((endElement + percent) > widthWindow)
             setLeftPosition(-70);
         else setLeftPosition(100);
-    }, []);
+    }, [objCardHeader]);
 
     return <div
         style={{ height: "250px", width: "166px", backgroundImage: `url(${backgroundImg})` }}
@@ -113,7 +129,7 @@ let Card = ({ backgroundImg, data }) => {
 
             {objShow ? <ElementInfo onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)} /> : <ElementInfo onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)} show={true} />}
             <div style={{ left: `${leftPosition}%` }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
-                <ShowInfo height="200px" width={`${widthModalWindow}px`} />
+                <ShowInfo ref={modalWindow} InfoIcon={ElementInfo} height={`${widthModalWindow}px`} width={`${widthModalWindow}px`} />
             </div>
 
         </div>

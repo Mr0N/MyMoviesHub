@@ -153,10 +153,11 @@ z-index: 5;
 {
     display: flex;
     flex-direction: column;
+    font-size: 12px;
 }
 .modal-show-info
 {
-    color:white;
+    color:#898f92;
 }
 .modal-row
 {
@@ -170,4 +171,11 @@ z-index: 5;
 .modal-show-info > *
 {
     margin: 0 0 0 0;
+}
+.info-icon-modal-window
+{
+    display:flex;
+    position: relative;
+    width: 100%;
+    flex-direction: row-reverse;
 }
