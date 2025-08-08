@@ -50,12 +50,12 @@ let MoviesCard = ({ backgroundImg }) => {
     data.movies = true;
     return <Card backgroundImg={backgroundImg} data={data} />
 }
-let ShowInfo = React.forwardRef((props,ref) => {
-    let { width, height,InfoIcon } = props;
+let ShowInfo = React.forwardRef((props, ref) => {
+    let { width, height, InfoIcon } = props;
     return <div ref={ref} className="modal-show-info" style={{ minHeight: height, minWidth: width }}>
-       <div className="info-icon-modal-window">
+        <div className="info-icon-modal-window">
             <div className="info-icon-modal-infoicon">
-                 <InfoIcon  show={true}/>
+                <InfoIcon show={true} />
             </div>
         </div>
         <a className="blue-color">Title</a>
@@ -64,7 +64,7 @@ let ShowInfo = React.forwardRef((props,ref) => {
             <p className="blue-color">5.43</p>
             <p className="blue-color">(2)</p>
         </span>
-        <div><StarsRow value={2}/></div>
+        <div><StarsRow value={2} /></div>
         <p className="description-card-site">
             Когда у Кэтрин диагностируют неизлечимую болезнь, её муж Генри обещает похоронить супругу в лесу рядом с домом, где она выросла. Однако после внезапной смерти жены мужчина нарушает обещание и под давлением её влиятельного отца Гэри возвращает тело в город....
 
@@ -78,7 +78,7 @@ let ShowInfo = React.forwardRef((props,ref) => {
             <span className="blue-color">Валерио Мастерио</span>
         </div>
         <div className="starring-card-site modal-row">
-              <p>В ролях:</p>
+            <p>В ролях:</p>
             <span className="blue-color">Валерио Мастерио</span>
         </div>
         <div className="rating-card-site modal-row">
@@ -106,32 +106,39 @@ let Card = ({ backgroundImg, data }) => {
     let customWindow = useRef();
     let modalWindow = useRef();
     useEffect(() => {
-          
-        let rectCurrentModalWindow = modalWindow.current.getBoundingClientRect();
+
+        let rectCurrentModalWindow = customWindow.current.getBoundingClientRect();
+
         //let infoOfCustomElement = customWindow.current.getBoundingClientRect();
         let widthWindow = window.outerWidth;
-        let equalsResult = widthWindow-(rectCurrentModalWindow.right+rectCurrentModalWindow.width);
+        //  console.log(`widthWindow:${widthWindow} Element:${widthWindow - rectCurrentModalWindow.right}}`);
+        // let equalsResult = widthWindow-(rectCurrentModalWindow.right+rectCurrentModalWindow.width);
         //let beginElement = infoOfCustomElement.left;
         //let endElement = beginElement + (rectCurrentModalWindow.width+(rectCurrentModalWindow.width/100)*40);
         //let percent = (endElement / 100) * 30;
-        if (equalsResult < 0)
-          setLeftPosition(-70);
-        else setLeftPosition(100);
-    }, [objCardHeader]);
-    
+        let rigthElement = widthWindow - rectCurrentModalWindow.right;
+        let percent = widthWindow / 100;
+        let percentDeviation = rigthElement / percent;
+        if (percentDeviation > 50)
+            setLeftPosition(100);
+        else setLeftPosition(-70);
+    }, []);
+
     return <div
         style={{ height: "250px", width: "166px", backgroundImage: `url(${backgroundImg})` }}
         className="card-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
 
         <div ref={customWindow} className="card-header">
-        
-            <div  onMouseEnter={() => setCard(true)} onMouseLeave={()=>setCard(false)}>
-            {objShow ? <ElementInfo /> 
-            : <ElementInfo show={true} />}
+            <div onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)}>
+                <div>
+                    {objShow ? <ElementInfo />
+                        : <ElementInfo show={true} />}
+                </div>
+                <div style={{ left: `${leftPosition}%`,top:"-32%" }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
+                    <ShowInfo ref={modalWindow} InfoIcon={ElementInfo} height={`${widthModalWindow}px`} width={`${widthModalWindow}px`} />
+                </div>
             </div>
-            <div style={{ left: `${leftPosition}%` }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
-                <ShowInfo ref={modalWindow} InfoIcon={ElementInfo} height={`${widthModalWindow}px`} width={`${widthModalWindow}px`} />
-            </div>
+
 
         </div>
         <div className="card-trailer" onMouseLeave={() => setViewTrailer(false)} >
