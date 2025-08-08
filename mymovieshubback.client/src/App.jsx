@@ -9,7 +9,7 @@ import AnnouncePage from "../src/pages/AnnouncePage"
 import PaginationPage  from './pages/PaginationPage';
 
 export default class App extends Component {
-
+  
 
   render() {
     return <Router>

@@ -106,28 +106,29 @@ let Card = ({ backgroundImg, data }) => {
     let customWindow = useRef();
     let modalWindow = useRef();
     useEffect(() => {
-            if (!objCardHeader) return; // рано виходимо, якщо немає показу
-        let currentModalWindow = modalWindow.current;
-        let rect = currentModalWindow.getBoundingClientRect();
-        console.log(rect);
-
-        let widthWindow = window.innerWidth;
-        let infoOfElement = customWindow.current.getBoundingClientRect();
-        let beginElement = infoOfElement.left;
-        let endElement = beginElement + (rect.width+(rect.width/100)*40);
-        let percent = (endElement / 100) * 30;
-        if ((endElement + percent) > widthWindow)
-            setLeftPosition(-70);
+          
+        let rectCurrentModalWindow = modalWindow.current.getBoundingClientRect();
+        //let infoOfCustomElement = customWindow.current.getBoundingClientRect();
+        let widthWindow = window.outerWidth;
+        let equalsResult = widthWindow-(rectCurrentModalWindow.right+rectCurrentModalWindow.width);
+        //let beginElement = infoOfCustomElement.left;
+        //let endElement = beginElement + (rectCurrentModalWindow.width+(rectCurrentModalWindow.width/100)*40);
+        //let percent = (endElement / 100) * 30;
+        if (equalsResult < 0)
+          setLeftPosition(-70);
         else setLeftPosition(100);
     }, [objCardHeader]);
-
+    
     return <div
         style={{ height: "250px", width: "166px", backgroundImage: `url(${backgroundImg})` }}
         className="card-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
 
         <div ref={customWindow} className="card-header">
-
-            {objShow ? <ElementInfo onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)} /> : <ElementInfo onMouseEnter={() => setCard(true)} onMouseLeave={() => setCard(false)} show={true} />}
+        
+            <div  onMouseEnter={() => setCard(true)} onMouseLeave={()=>setCard(false)}>
+            {objShow ? <ElementInfo /> 
+            : <ElementInfo show={true} />}
+            </div>
             <div style={{ left: `${leftPosition}%` }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
                 <ShowInfo ref={modalWindow} InfoIcon={ElementInfo} height={`${widthModalWindow}px`} width={`${widthModalWindow}px`} />
             </div>
