@@ -52,7 +52,7 @@ let MoviesCard = ({ backgroundImg }) => {
 }
 let ShowInfo = React.forwardRef((props, ref) => {
     let { width, height, InfoIcon } = props;
-    return <div ref={ref} className="modal-show-info" style={{ minHeight: height, minWidth: width }}>
+    return <div ref={ref} className="modal-show-info" >
         <div className="info-icon-modal-window">
             <div className="info-icon-modal-infoicon">
                 <InfoIcon show={true} />
@@ -125,7 +125,7 @@ let Card = ({ backgroundImg, data }) => {
     }, []);
 
     return <div
-        style={{ height: "250px", width: "166px", backgroundImage: `url(${backgroundImg})` }}
+        style={{  backgroundImage: `url(${backgroundImg})` }}
         className="card-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
 
         <div ref={customWindow} className="card-header">

@@ -1,7 +1,7 @@
 .card-container
 {
  
-    
+      aspect-ratio: 2 / 3; /* або 16/9, або 1/1, залежно від бажаної форми */
     display: flex;
     flex-direction: column;
     padding-left: 0px;
@@ -10,7 +10,9 @@
     border-radius: 3px;
     border-color: green;
     border-style: solid;
-    
+      background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 .card-container > * 
 {
