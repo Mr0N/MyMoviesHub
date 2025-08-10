@@ -156,7 +156,10 @@ let Card = ({ backgroundImg, data }) => {
         <div className="card-icon">
             <img className={`card-icon-img ${!objShow ? "card-hide" : ""}`} src={preview}></img>
         </div>
-        <div className="card-footer">4</div>
+        <div className="card-footer">
+            <p className="card-footer-txt">1 сезон, 6 серия</p>
+
+        </div>
     </div>
 }
 class Data {

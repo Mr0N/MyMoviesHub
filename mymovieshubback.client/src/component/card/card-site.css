@@ -13,6 +13,7 @@
       background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
+    position: relative;
 }
 .card-container > * 
 {
@@ -182,4 +183,22 @@ z-index: 5;
     position: relative;
     width: 100%;
     flex-direction: row-reverse;
+}
+
+.card-footer
+{
+    position: absolute;
+    
+    bottom: 18px;
+    font-size: 10px;
+   
+    
+}
+.card-footer-txt{
+    height: 20px;
+    background-color:#222d33;
+    color:white;
+     display: flex;
+    justify-content: center;
+    align-items: center;
 }
