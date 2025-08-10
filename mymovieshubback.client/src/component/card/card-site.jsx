@@ -7,20 +7,26 @@ import movies from "../../assets/card/movies.svg"
 import serials from "../../assets/card/serials.svg"
 import InfoIcon from "../icon-site/info-icon";
 import StarsRow from "./starRow";
+import { left } from "@popperjs/core";
+
+
+
 let BaseData = ({ color, name, icon, show, onMouseEnter, onMouseLeave }) => {
 
     return <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <div style={{ backgroundColor: `${color}` }} className="card-block">
-            <p className={!show ? "card-site-hide" : ""}>{name}</p>
+            <p className={!show ? "card-site-hide" : ''}>{name}</p>
 
             {show ? <img className="card-icon-data" src={icon}></img> : <InfoIcon style={{ height: "20px", width: "20px" }} className="card-info card-icon-data" />}
         </div>
 
     </div>
 }
+
 let Anime = ({ show, onMouseEnter, onMouseLeave }) => {
     return <BaseData onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} color="#696969" name="Аниме" show={show} icon={anime} />
 }
+
 let Cartoons = ({ show, onMouseEnter, onMouseLeave }) => {
     return <BaseData onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} color="#216d2b" name="Мультфильмы" show={show} icon={cartoons} />
 }
@@ -51,11 +57,11 @@ let MoviesCard = ({ backgroundImg }) => {
     return <Card backgroundImg={backgroundImg} data={data} />
 }
 let ShowInfo = React.forwardRef((props, ref) => {
-   
+    let Element = props.InfoIcon;
     return <div ref={ref} className="modal-show-info" >
         <div className="info-icon-modal-window">
             <div className="info-icon-modal-infoicon">
-                <InfoIcon show={true} />
+                <Element show={true} />
             </div>
         </div>
         <a className="blue-color">Title</a>
@@ -121,11 +127,11 @@ let Card = ({ backgroundImg, data }) => {
         let percentDeviation = rigthElement / percent;
         if (percentDeviation > 50)
             setLeftPosition(100);
-        else setLeftPosition(-70);
+        else setLeftPosition(-130);
     }, []);
 
     return <div
-        style={{  backgroundImage: `url(${backgroundImg})` }}
+        style={{ backgroundImage: `url(${backgroundImg})` }}
         className="card-container" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
 
         <div ref={customWindow} className="card-header">
@@ -134,7 +140,7 @@ let Card = ({ backgroundImg, data }) => {
                     {objShow ? <ElementInfo />
                         : <ElementInfo show={true} />}
                 </div>
-                <div style={{ left: `${leftPosition}%`,top:"-32%" }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
+                <div style={{ left: `${leftPosition}%`, top: "-32%" }} ref={cardHeaderRef} className={objCardHeader ? `show-info` : `show-info card-site-hide`}>
                     <ShowInfo ref={modalWindow} InfoIcon={ElementInfo} height={`${widthModalWindow}px`} width={`${widthModalWindow}px`} />
                 </div>
             </div>
@@ -142,15 +148,18 @@ let Card = ({ backgroundImg, data }) => {
 
         </div>
         <div className="card-trailer" onMouseLeave={() => setViewTrailer(false)} >
-            <div className={objShow ? "card-opacity" : ""} onMouseEnter={() => setViewTrailer(true)} className="card-header-icon-trailer">
-                <img className="card-icon-trailer" src={preview}></img>
-            </div>
-            <div className={objViewTrailer ? "card-trailer-site card-opacity" : "card-trailer-site card-hide"}>
-                <p style={{
-                    textTransform: "upper",
-                    color: "white",
-                    fontSize: "10px"
-                }} >Смотреть трейлер</p>
+            <div className="card-trailer-container">
+                <div className={objShow ? "card-opacity  card-header-icon-trailer" : "card-header-icon-trailer"} onMouseEnter={() => setViewTrailer(true)} >
+                    <img className="card-icon-trailer" src={preview}></img>
+                </div>
+                <div className={objViewTrailer ? "card-trailer-site card-opacity" : "card-trailer-site card-hide"}>
+                    <p style={{
+                        textTransform: "upper",
+                        color: "white",
+                        fontSize: "12px",
+                        left:"0"
+                    }} >Смотреть трейлер</p>
+                </div>
             </div>
         </div>
         <div className="card-icon">

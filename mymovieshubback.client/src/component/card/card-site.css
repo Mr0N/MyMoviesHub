@@ -33,7 +33,10 @@ height: 10%;
 .card-trailer{
     height: 15%;
     position: relative;
-    
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
 
 }
 .card-trailer > *
@@ -57,8 +60,8 @@ height: 10%;
     display: none !important;
 }
 .card-icon-trailer{
-    height: 90%;
-    width: 90%;
+    height: 25px;
+    
 }
 .card-header-icon-trailer
 { 
@@ -74,6 +77,8 @@ height: 10%;
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 .card-header{
     display: flex;
@@ -157,12 +162,16 @@ z-index: 5;
     display: flex;
     flex-direction: column;
     font-size: 12px;
-       aspect-ratio: 16 / 9; /* або 16/9, або 1/1, залежно від бажаної форми */
+    aspect-ratio: 16 / 9;
+    width: 30vw;
+    height: 60vh;
    
 }
 .modal-show-info
 {
     color:#898f92;
+    overflow: hidden;
+
 }
 .modal-row
 {
@@ -201,4 +210,14 @@ z-index: 5;
      display: flex;
     justify-content: center;
     align-items: center;
+}
+.card-trailer-container
+{
+    display: flex;
+    flex-direction:row;
+    
+    justify-content:flex-start;
+    position: relative;
+    cursor: pointer;
+    
 }
