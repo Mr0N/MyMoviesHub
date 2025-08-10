@@ -156,6 +156,8 @@ z-index: 5;
     display: flex;
     flex-direction: column;
     font-size: 12px;
+       aspect-ratio: 16 / 9; /* або 16/9, або 1/1, залежно від бажаної форми */
+   
 }
 .modal-show-info
 {

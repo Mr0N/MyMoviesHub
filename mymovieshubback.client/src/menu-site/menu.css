@@ -9,6 +9,7 @@
     align-items:center;
     z-index: 11;
     height: 44px;
+    padding-left: 5%;
 }
 .menu *
 {
@@ -26,7 +27,7 @@
     flex-direction: row;
     position: relative;
     align-items:center;
-
+    
     margin-bottom: 0;
 }
 .menu-item li
@@ -75,8 +76,7 @@
       z-index: 13 ;
        height: 50vh;
        width:80vw;
-       left: 20%;
-
+       left: 5%;
 }
 .cinema > div
 {

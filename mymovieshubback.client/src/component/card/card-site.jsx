@@ -51,7 +51,7 @@ let MoviesCard = ({ backgroundImg }) => {
     return <Card backgroundImg={backgroundImg} data={data} />
 }
 let ShowInfo = React.forwardRef((props, ref) => {
-    let { width, height, InfoIcon } = props;
+   
     return <div ref={ref} className="modal-show-info" >
         <div className="info-icon-modal-window">
             <div className="info-icon-modal-infoicon">
