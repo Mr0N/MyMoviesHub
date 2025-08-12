@@ -7,3 +7,5 @@ let CloseIcon = ()=>{
                    }} src={closeImage}></img>
 }
 export default CloseIcon;
+
+

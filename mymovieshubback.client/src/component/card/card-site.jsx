@@ -149,15 +149,14 @@ let Card = ({ backgroundImg, data }) => {
         </div>
         <div className="card-trailer" onMouseLeave={() => setViewTrailer(false)} >
             <div className="card-trailer-container">
-                <div className={objShow ? "card-opacity  card-header-icon-trailer" : "card-header-icon-trailer"} onMouseEnter={() => setViewTrailer(true)} >
+                <div className={objShow ? "card-header-icon-trailer" : "card-header-icon-trailer"} onMouseEnter={() => setViewTrailer(true)} >
                     <img className="card-icon-trailer" src={preview}></img>
                 </div>
-                <div className={objViewTrailer ? "card-trailer-site card-opacity" : "card-trailer-site card-hide"}>
-                    <p style={{
+                <div className={objViewTrailer ? "card-trailer-site card-opacity" : "card-trailer-site card-visual-hide"}>
+                    <p className="card-trailer-site-txt" style={{
                         textTransform: "upper",
                         color: "white",
-                        fontSize: "12px",
-                        left:"0"
+                        fontSize: "12px"
                     }} >Смотреть трейлер</p>
                 </div>
             </div>

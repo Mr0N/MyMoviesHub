@@ -41,8 +41,7 @@ height: 10%;
 }
 .card-trailer > *
 {
-    background-color: black;
-    opacity: 0.5;
+   
 }
 .card-trailer:hover{
     opacity: 1;
@@ -59,26 +58,37 @@ height: 10%;
 .card-hide{
     display: none !important;
 }
+.card-visual-hide{
+    visibility: hidden;
+}
 .card-icon-trailer{
     height: 25px;
     
 }
 .card-header-icon-trailer
 { 
-    width: 30%;
+  background-color:black;
 }
-.card-opacity{
-    opacity: 0.7;
+.card-header-icon-trailer:hover
+{
+    opacity: 1;
 }
+
 
 .card-trailer-site
 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute; /* щоб лягало поверх картинки */
+   
+    width: 100%;
     height: 100%;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+    
+    display: flex;
+    flex-direction: column; /* іконка зверху, текст знизу */
+    justify-content: center; /* по вертикалі */
+    align-items: center; /* по горизонталі */
+    
+    background-color: rgba(0,0,0,0.6);
+    
 }
 .card-header{
     display: flex;
@@ -216,8 +226,15 @@ z-index: 5;
     display: flex;
     flex-direction:row;
     
-    justify-content:flex-start;
+    align-items: center;
     position: relative;
     cursor: pointer;
-    
+   
+}
+.card-trailer-container * {
+    padding: 0 0 0 0;
+    margin:  0 0 0 0;
+}
+.card-trailer-site-txt {
+    padding-left: 14px !important;
 }
